@@ -11,8 +11,8 @@ public class Spiketrap : MonoBehaviour
     public GameObject RestartMenu;
     public LayerMask Player;
 
-    public Image[] images; // Сюда добавь изображения, чью альфу надо менять
-    public float fadeDuration = 2f; // Время на полное проявление
+    public Image[] images; // пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+    public float fadeDuration = 2f; // пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     private Coroutine fadeCoroutine;
     private bool isFullyVisible = false;
 
@@ -73,6 +73,7 @@ public class Spiketrap : MonoBehaviour
         {
             playerMovement.enabled = false;//
             playerCam.enabled = false;//
+            playerMovement.GetComponent<Rigidbody>().isKinematic = true;
             RestartMenu.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;

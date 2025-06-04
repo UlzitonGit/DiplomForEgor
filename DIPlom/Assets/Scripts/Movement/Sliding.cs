@@ -38,6 +38,7 @@ public class Sliding : MonoBehaviour
 
     private void Update()
     {
+        if(!pm.grounded) return;
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
         currentY = transform.position.y;
