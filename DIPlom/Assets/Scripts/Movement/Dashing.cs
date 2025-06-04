@@ -2,15 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.ProBuilder;
+using UnityEngine.UI;
 
 public class Dashing : MonoBehaviour
 {
+    [SerializeField] private Image reloadUi;
     [Header("References")]
     public Transform orientation;
     public Transform playerCam;
     private Rigidbody rb;
     private PlayerMovementDashing pm;
-
+    
     [Header("Dashing")]
     public float dashForce;
     public float dashUpwardForce;
@@ -48,6 +50,7 @@ public class Dashing : MonoBehaviour
 
         if (dashCdTimer > 0)
             dashCdTimer -= Time.deltaTime;
+            reloadUi.fillAmount = dashCd * dashCdTimer;
         if (disableY)//
             rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);//
     }
