@@ -36,9 +36,12 @@ public class Pause : MonoBehaviour
         isPaused = true;
         playerCam.enabled = false;
         Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
     public void ResumeGame()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;

@@ -60,7 +60,11 @@ public class Spiketrap : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         Time.timeScale = 1;
     }
-
+    public void NextLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        Time.timeScale = 1;
+    }
     public void Menu()
     {
         SceneManager.LoadScene(0);
