@@ -12,7 +12,7 @@ public class Sliding : MonoBehaviour
     public Transform playerObj;
     private Rigidbody rb;
     private PlayerMovementAdvanced pm;
-
+    public Sounds sounds;
     [Header("Sliding")]
     public float maxSlideTime;
     public float slideForce;
@@ -21,7 +21,7 @@ public class Sliding : MonoBehaviour
     public float slideYScale;
     private float startYScale;
     private float currentY;
-
+    
     [Header("Input")]
     public KeyCode slideKey = KeyCode.LeftControl;
     private float horizontalInput;
@@ -59,7 +59,7 @@ public class Sliding : MonoBehaviour
     {
         if (pm.wallrunning) return;
         pm.sliding = true;
-
+        sounds.PlaySlideSound();
         transform.localScale = new Vector3(transform.localScale.x, slideYScale, transform.localScale.z);
         rb.AddForce(Vector3.down * 5f, ForceMode.Impulse);
 

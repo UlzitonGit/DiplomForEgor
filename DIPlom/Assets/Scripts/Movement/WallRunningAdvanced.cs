@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WallRunningAdvanced : MonoBehaviour
 {
+    
     [Header("Wallrunning")]
     public LayerMask whatIsWall;
     public LayerMask whatIsGround;
@@ -46,7 +47,7 @@ public class WallRunningAdvanced : MonoBehaviour
     private PlayerMovementAdvanced pm;
     private LedgeGrabbing lg;
     private Rigidbody rb;
-
+    public Sounds sounds;
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -184,7 +185,7 @@ public class WallRunningAdvanced : MonoBehaviour
     private void WallJump()
     {
         if (lg.holding || lg.exitingLedge) return;
-
+        sounds.PlayJumpSound();   
         // enter exiting wall state
         exitingWall = true;
         exitWallTimer = exitWallTime;

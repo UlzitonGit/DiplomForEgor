@@ -81,12 +81,13 @@ public class PlayerMovementAdvanced : MonoBehaviour
     public bool wallrunning;
     public bool climbing;
     public bool vaulting;
-
+    public bool walking;
+    public bool sprinting;
     public bool freeze;
     public bool unlimited;
     
     public bool restricted;
-
+    public Sounds sounds;
     public TextMeshProUGUI text_speed;
     public TextMeshProUGUI text_mode;
 
@@ -123,11 +124,14 @@ public class PlayerMovementAdvanced : MonoBehaviour
         MovePlayer();
     }
 
+
+
     private void MyInput()
     {
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
-
+        
+        
         // when to jump
         if (Input.GetKey(jumpKey) && readyToJump && grounded)
         {
@@ -162,6 +166,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
         // Mode - Freeze
         if (freeze)
         {
+            sounds.StopWalking();
             state = MovementState.freeze;
             rb.velocity = Vector3.zero;
             desiredMoveSpeed = 0f;
@@ -184,6 +189,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
         // Mode - Climbing
         else if (climbing)
         {
+            sounds.Walking();
             state = MovementState.climbing;
             desiredMoveSpeed = climbSpeed;
         }
@@ -191,6 +197,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
         // Mode - Wallrunning
         else if (wallrunning)
         {
+            sounds.Walking();
             state = MovementState.wallrunning;
             desiredMoveSpeed = wallrunSpeed;
         }
@@ -199,7 +206,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
         else if (sliding)
         {
             state = MovementState.sliding;
-
+            sounds.StopWalking();
             // increase speed by one every second
             if (OnSlope() && rb.velocity.y < 0.1f)
             {
@@ -221,6 +228,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
         // Mode - Sprinting
         else if (grounded && Input.GetKey(sprintKey))
         {
+            sounds.Walking();
             state = MovementState.sprinting;
             desiredMoveSpeed = sprintSpeed;
         }
@@ -228,6 +236,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
         // Mode - Walking
         else if (grounded)
         {
+            sounds.StopWalking();
             state = MovementState.walking;
             desiredMoveSpeed = walkSpeed;
         }
@@ -235,6 +244,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
         // Mode - Air
         else
         {
+            sounds.StopWalking();
             state = MovementState.air;
 
             if (moveSpeed < airMinSpeed)
@@ -285,7 +295,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
 
             yield return null;
         }
-
+    
         moveSpeed = desiredMoveSpeed;
     }
 
@@ -314,7 +324,6 @@ public class PlayerMovementAdvanced : MonoBehaviour
         // in air
         else if (!grounded)
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
-
         // turn gravity off while on slope
         if(!wallrunning) rb.useGravity = !OnSlope();
     }
@@ -344,6 +353,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
 
     private void Jump()
     {
+        sounds.PlayJumpSound();   
         exitingSlope = true;
 
         // reset y velocity

@@ -12,7 +12,7 @@ public class Dashing : MonoBehaviour
     public Transform playerCam;
     private Rigidbody rb;
     private PlayerMovementDashing pm;
-    
+    public Sounds sounds;
     [Header("Dashing")]
     public float dashForce;
     public float dashUpwardForce;
@@ -59,12 +59,12 @@ public class Dashing : MonoBehaviour
     {
         if (dashCdTimer > 0) return;
         else dashCdTimer = dashCd;
-
+        
         //pm.dashing = true;
         //pm.maxYSpeed = maxDashYSpeed;
 
         cam.DoFov(dashFov);
-
+        sounds.PlayDashSound();
         Transform forwardT;
 
         if (useCameraForward)
