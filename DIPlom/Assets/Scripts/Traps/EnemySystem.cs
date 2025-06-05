@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,7 +19,7 @@ public class EnemySystem : MonoBehaviour
 
     void Start()
     {
-        enemy = transform.GetChild(0);
+        enemy = transform;
         forward = true;
         currentElement = 1;
         currentPoint = points[currentElement];
@@ -34,7 +35,6 @@ public class EnemySystem : MonoBehaviour
         }
     }
 #endif
-
 
     void Update()
     {

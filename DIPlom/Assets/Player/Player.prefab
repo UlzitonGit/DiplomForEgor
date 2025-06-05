@@ -246,7 +246,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 4
+  m_VersionIndex: 7
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -319,9 +319,10 @@ GameObject:
   - component: {fileID: 9189721754447587223}
   - component: {fileID: 9189721754447587222}
   - component: {fileID: 9189721754447587221}
+  - component: {fileID: 809505850}
   m_Layer: 6
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -333,7 +334,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9189721754447587258}
-  m_LocalRotation: {x: -0, y: 0.032450654, z: -0, w: 0.9994734}
+  m_LocalRotation: {x: 0, y: 0.032448705, z: 0, w: 0.9994734}
   m_LocalPosition: {x: 53.61, y: 2.25, z: 24.23}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -497,15 +498,15 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4480
   climbSpeed: 8
-  maxClimbTime: 1
+  maxClimbTime: 20
   climbJumpUpForce: 10
   climbJumpBackForce: 15
   jumpKey: 32
   climbJumps: 1
-  detectionLength: 0.5
-  sphereCastRadius: 0.5
-  maxWallLookAngle: 40
-  minWallNormalAngleChange: 10
+  detectionLength: 2
+  sphereCastRadius: 0.1
+  maxWallLookAngle: 90
+  minWallNormalAngleChange: 20
   exitingWall: 0
   exitWallTime: 0.2
   cam: {fileID: 0}
@@ -515,8 +516,8 @@ MonoBehaviour:
   maxLedgeJumpUpSpeed: 7
   maxLedgeGrabDistance: 1
   minTimeOnLedge: 1
-  ledgeDetectionLength: 0.5
-  ledgeSphereCastRadius: 0.5
+  ledgeDetectionLength: 2
+  ledgeSphereCastRadius: 2
   whatIsLedge:
     serializedVersion: 2
     m_Bits: 2048
@@ -608,6 +609,33 @@ MonoBehaviour:
     m_Bits: 2048
   exitingLedge: 0
   exitLedgeTime: 0
+--- !u!114 &809505850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9189721754447587258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c34eabff2e99cd4eaaff61b108fbfd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reloadUi: {fileID: 0}
+  orientation: {fileID: 9189721755129214428}
+  playerCam: {fileID: 0}
+  dashForce: 200
+  dashUpwardForce: 100
+  maxDashYSpeed: 0
+  dashDuration: 0.2
+  cam: {fileID: 9189721754447587212}
+  dashFov: 110
+  useCameraForward: 0
+  allowAllDirections: 1
+  disableGravity: 0
+  resetVel: 1
+  dashCd: 1
+  dashKey: 101
 --- !u!1 &9189721754728137704
 GameObject:
   m_ObjectHideFlags: 0
@@ -718,7 +746,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8233d90336aea43098adf6dbabd606a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MeshFormatVersion: 1
+  m_MeshFormatVersion: 2
   m_Faces:
   - m_Indexes: 000000000100000002000000010000000300000002000000
     m_SmoothingGroup: 0
@@ -918,7 +946,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 0
+  m_VersionIndex: 3
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
