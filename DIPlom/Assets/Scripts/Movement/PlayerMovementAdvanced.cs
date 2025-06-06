@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class PlayerMovementAdvanced : MonoBehaviour
+public class PlayerMovementAdvanced : Tutorial
 {
     [Header("Movement")]
     private float moveSpeed;
@@ -50,7 +50,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
 
     [Header("References")]
     public Climbing climbingScript;
-    private ClimbingDone climbingScriptDone;
+    [SerializeField] ClimbingDone climbingScriptDone;
 
     public Transform orientation;
 
@@ -93,7 +93,7 @@ public class PlayerMovementAdvanced : MonoBehaviour
 
     private void Start()
     {
-        climbingScriptDone = GetComponent<ClimbingDone>();
+     
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
 

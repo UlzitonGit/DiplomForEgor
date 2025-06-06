@@ -314,7 +314,6 @@ GameObject:
   - component: {fileID: 9189721754447587202}
   - component: {fileID: 9189721754447587212}
   - component: {fileID: 9189721754447587211}
-  - component: {fileID: 9189721754447587209}
   - component: {fileID: 9189721754447587210}
   - component: {fileID: 9189721754447587223}
   - component: {fileID: 9189721754447587222}
@@ -435,7 +434,7 @@ MonoBehaviour:
     m_Bits: 1920
   grounded: 0
   maxSlopeAngle: 30
-  climbingScript: {fileID: 9189721754447587209}
+  climbingScript: {fileID: 0}
   orientation: {fileID: 9189721755129214428}
   state: 0
   sliding: 0
@@ -443,42 +442,14 @@ MonoBehaviour:
   wallrunning: 0
   climbing: 0
   vaulting: 0
+  walking: 0
+  sprinting: 0
   freeze: 0
   unlimited: 0
   restricted: 0
+  sounds: {fileID: 0}
   text_speed: {fileID: 0}
   text_mode: {fileID: 0}
---- !u!114 &9189721754447587209
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9189721754447587258}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bab04870fdad9a54c859293cd1386821, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  orientation: {fileID: 9189721755129214428}
-  rb: {fileID: 9189721754447587256}
-  pm: {fileID: 9189721754447587211}
-  lg: {fileID: 9189721754447587221}
-  whatIsWall:
-    serializedVersion: 2
-    m_Bits: 4480
-  climbSpeed: 0
-  maxClimbTime: 0
-  climbJumpUpForce: 0
-  climbJumpBackForce: 0
-  jumpKey: 32
-  climbJumps: 0
-  detectionLength: 0
-  sphereCastRadius: 0
-  maxWallLookAngle: 0
-  minWallNormalAngleChange: 0
-  exitingWall: 0
-  exitWallTime: 0
 --- !u!114 &9189721754447587210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -542,6 +513,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {fileID: 9189721755129214428}
   playerObj: {fileID: 9189721755850293293}
+  sounds: {fileID: 0}
   maxSlideTime: 0.5
   slideForce: 100
   slideYScale: 0.5
@@ -579,6 +551,7 @@ MonoBehaviour:
   gravityCounterForce: 30
   orientation: {fileID: 9189721755129214428}
   cam: {fileID: 9189721754447587212}
+  sounds: {fileID: 0}
 --- !u!114 &9189721754447587221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -624,6 +597,7 @@ MonoBehaviour:
   reloadUi: {fileID: 0}
   orientation: {fileID: 9189721755129214428}
   playerCam: {fileID: 0}
+  sounds: {fileID: 0}
   dashForce: 200
   dashUpwardForce: 100
   maxDashYSpeed: 0

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.ProBuilder;
 using UnityEngine.UI;
 
-public class Dashing : MonoBehaviour
+public class Dashing : Tutorial
 {
     [SerializeField] private Image reloadUi;
     [Header("References")]

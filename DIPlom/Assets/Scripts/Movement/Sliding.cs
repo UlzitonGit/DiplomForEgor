@@ -5,7 +5,7 @@ using UnityEngine;
 
 /// added if(pm.wallrunning) return;
 
-public class Sliding : MonoBehaviour
+public class Sliding : Tutorial
 {
     [Header("References")]
     public Transform orientation;

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ClimbingDone : MonoBehaviour
+public class ClimbingDone : Tutorial
 {
     [Header("References")]
     public Transform orientation;
